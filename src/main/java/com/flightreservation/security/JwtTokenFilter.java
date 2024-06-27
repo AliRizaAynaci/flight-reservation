@@ -29,15 +29,18 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
         if (token != null && jwtTokenUtil.validateToken(token)) {
             JwtUserDetails userDetails = jwtTokenUtil.getUserDetailsFromJwt(token);
-            if (userDetails != null && userDetails.getRole() != null && userDetails.getRole().equals(Role.ADMIN)) {
-                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetails,
-                        null, userDetails.getAuthorities());
+
+            if (userDetails != null && userDetails.getAuthorities().stream()
+                    .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"))) {
+
+                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
         }
 
         chain.doFilter(request, response);
     }
+
 
 
     private String extractJwtFromRequest(HttpServletRequest request) {
