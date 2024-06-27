@@ -1,9 +1,12 @@
 package com.flightreservation.dto;
 
-public record BookingCreateDTO(
-        String flightNumber,
-        String name,
-        String email,
-        String phoneNumber
-) {
+import lombok.Data;
+
+@Data
+public class BookingCreateDTO {
+
+    private String flightNumber;
+    private String name;
+    private String email;
+    private String phoneNumber;
 }

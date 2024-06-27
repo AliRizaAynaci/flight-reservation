@@ -1,14 +1,18 @@
 package com.flightreservation.dto;
 
+import lombok.Data;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public record FlightDTO(
-        String flightNumber,
-        String departureAirport,
-        String arrivalAirport,
-        LocalDateTime departureDate,
-        LocalDateTime arrivalDate,
-        BigDecimal price
-) {
+@Data
+public class FlightDTO {
+
+    private String flightNumber;
+    private String departureAirport;
+    private String arrivalAirport;
+    private LocalDateTime departureDate;
+    private LocalDateTime arrivalDate;
+    private BigDecimal price;
+
 }

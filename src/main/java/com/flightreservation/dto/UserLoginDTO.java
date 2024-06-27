@@ -1,7 +1,10 @@
 package com.flightreservation.dto;
 
-public record UserLoginDTO(
-        String email,
-        String password
-) {
+import lombok.Data;
+
+@Data
+public class UserLoginDTO {
+
+    private String email;
+    private String password;
 }
