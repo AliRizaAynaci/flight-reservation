@@ -23,6 +23,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -66,6 +67,10 @@ public class UserService implements UserDetailsService {
     public User getUserById(Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new BusinessRuleException("User id ile kullanıcı bulunamadı."));
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 
     @Override
