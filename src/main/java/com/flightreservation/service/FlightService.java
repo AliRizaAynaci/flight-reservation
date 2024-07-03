@@ -50,7 +50,18 @@ public class FlightService {
     }
 
     public List<FlightDTO> searchFlights(String departure, String arrival) {
+        validateSearchParameters(departure, arrival);
         List<Flight> flights = flightRepository.findByDepartureAirportAndArrivalAirport(departure, arrival);
         return flights.stream().map(flightConverter::convertToDto).toList();
     }
+
+    private void validateSearchParameters(String departure, String arrival) {
+        if (departure == null || departure.isBlank()) {
+            throw new IllegalArgumentException("Departure airport cannot be empty.");
+        }
+        if (arrival == null || arrival.isBlank()) {
+            throw new IllegalArgumentException("Arrival airport cannot be empty.");
+        }
+    }
+
 }

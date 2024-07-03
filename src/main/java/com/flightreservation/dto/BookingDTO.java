@@ -8,6 +8,6 @@ public class BookingDTO {
     private String bookingNumber;
     private String flightNumber;
     private String passengerName;
-    private String email;
-    private String phoneNumber;
+    private String passengerEmail;
+    private String passengerPhone;
 }
