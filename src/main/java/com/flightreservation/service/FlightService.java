@@ -48,4 +48,9 @@ public class FlightService {
     public void deleteFlight(Long id) {
         flightRepository.deleteById(id);
     }
+
+    public List<FlightDTO> searchFlights(String departure, String arrival) {
+        List<Flight> flights = flightRepository.findByDepartureAirportAndArrivalAirport(departure, arrival);
+        return flights.stream().map(flightConverter::convertToDto).toList();
+    }
 }
