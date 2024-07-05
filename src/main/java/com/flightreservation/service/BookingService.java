@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -55,6 +56,19 @@ public class BookingService {
         return bookingDTO;
     }
 
+    public List<BookingDTO> getAllBookings() {
+        List<Booking> bookings = bookingRepository.findAll();
+        List<BookingDTO> bookingDTOS = new ArrayList<>();
+        for (Booking booking : bookings) {
+            BookingDTO bookingDTO = bookingConverter.convertToDto(booking);
+            bookingDTO.setPassengerName(booking.getUser().getName());
+            bookingDTO.setPassengerEmail(booking.getUser().getEmail());
+            bookingDTO.setPassengerPhone(booking.getUser().getPhoneNumber());
+            bookingDTOS.add(bookingDTO);
+        }
+        return bookingDTOS;
+    }
+
     private boolean isFlightAvailable(Flight flight) {
         int bookedSeats = bookingRepository.countByFlight(flight);
         return flight.getCapacity() > bookedSeats;
@@ -73,12 +87,5 @@ public class BookingService {
         newUser.setPhoneNumber(bookingDTO.getPassengerPhone());
         newUser.setRole(Role.USER);
         return userRepository.save(newUser);
-    }
-
-    public List<BookingDTO> getAllBookings() {
-        List<Booking> bookings = bookingRepository.findAll();
-        return bookings.stream()
-                .map(bookingConverter::convertToDto)
-                .toList();
     }
 }

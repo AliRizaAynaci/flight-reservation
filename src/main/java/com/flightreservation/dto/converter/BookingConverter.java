@@ -6,6 +6,8 @@ import com.flightreservation.model.entity.Booking;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class BookingConverter {
 
@@ -22,4 +24,6 @@ public class BookingConverter {
     public Booking convertToEntity(BookingCreateDTO bookingDTO) {
         return modelMapper.map(bookingDTO, Booking.class);
     }
+
+
 }
