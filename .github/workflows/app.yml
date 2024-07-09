@@ -1,4 +1,4 @@
-name: Fleet Management CI/CD Pipeline
+name: Flight Reservation CI/CD Pipeline
 
 on:
   push:
