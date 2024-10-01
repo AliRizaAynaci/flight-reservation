@@ -13,7 +13,7 @@ The system allows users to search for flights based on departure and arrival poi
 These are the core components around which the system revolves.
 
 ## Technologies Used
-- **Java 8+:** Programming language
+- **Java 17:** Programming language
 - **Spring Boot:** Framework for creating RESTful APIs
 - **Spring Data JPA:** Data access framework
 - **Spring Security:** Security framework
