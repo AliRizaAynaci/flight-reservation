@@ -1,12 +1,8 @@
 # Flight Reservation System Backend Application
 
----
-
 This project is a RESTful API built using Java Spring Boot framework, aimed at managing flight reservations. It provides both user-facing functionalities, such as booking flights, and administrative functionalities, such as managing flights and users.
 
 ## Project Overview
-
----
 The system allows users to search for flights based on departure and arrival points, view details, and make reservations. Admin users have additional privileges, including flight and user management.
 
 ### Flight and Booking Overview:
@@ -17,8 +13,6 @@ The system allows users to search for flights based on departure and arrival poi
 These are the core components around which the system revolves.
 
 ## Technologies Used
-
----
 - **Java 8+:** Programming language
 - **Spring Boot:** Framework for creating RESTful APIs
 - **Spring Data JPA:** Data access framework
@@ -33,8 +27,6 @@ These are the core components around which the system revolves.
 - **GitHub Actions:** CI/CD pipeline
 
 ## Database Schema
-
----
 ### User Table
 
 | Field       | Type                | Description       |
@@ -70,7 +62,6 @@ These are the core components around which the system revolves.
 
 ## CI/CD with GitHub Actions
 
----
 This project uses GitHub Actions for continuous integration and delivery. The workflow can be found in the `.github/workflows/app.yml` file.
 
 ### Pipeline Overview
@@ -93,7 +84,6 @@ The CI/CD pipeline consists of two jobs:
 
 ## Project Setup
 
----
 ### Running with Docker
 
 1. Install Docker and Docker Compose on your machine.
@@ -124,7 +114,6 @@ The CI/CD pipeline consists of two jobs:
 
 ## API Endpoints
 
----
 ### User Operations
 
 - `POST /api/users/register`: Register a new user.
@@ -143,7 +132,6 @@ The CI/CD pipeline consists of two jobs:
 
 # Sample API Requests
 
----
 ## Flight Search
 
 
