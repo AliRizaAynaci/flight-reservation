@@ -18,6 +18,7 @@ public class Flight {
     private Long id;
 
     private String flightNumber;
+    private int capacity;
     private String departureAirport;
     private String arrivalAirport;
     private LocalDateTime departureDate;

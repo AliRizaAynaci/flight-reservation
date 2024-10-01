@@ -17,4 +17,8 @@ public class FlightConverter {
     public FlightDTO convertToDto(Flight flight) {
         return modelMapper.map(flight, FlightDTO.class);
     }
+
+    public Flight convertToEntity(FlightDTO flightDTO) {
+        return modelMapper.map(flightDTO, Flight.class);
+    }
 }

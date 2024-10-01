@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 public class FlightDTO {
 
     private String flightNumber;
+    private int capacity;
     private String departureAirport;
     private String arrivalAirport;
     private LocalDateTime departureDate;

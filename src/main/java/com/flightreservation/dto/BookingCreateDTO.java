@@ -6,7 +6,7 @@ import lombok.Data;
 public class BookingCreateDTO {
 
     private String flightNumber;
-    private String name;
-    private String email;
-    private String phoneNumber;
+    private String passengerName;
+    private String passengerEmail;
+    private String passengerPhone;
 }

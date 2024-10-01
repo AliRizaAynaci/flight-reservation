@@ -1,8 +1,11 @@
 package com.flightreservation.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.flightreservation.model.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -21,4 +24,8 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
+    private List<Booking> bookings;
 }

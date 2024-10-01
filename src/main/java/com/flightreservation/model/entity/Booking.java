@@ -1,5 +1,6 @@
 package com.flightreservation.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,14 +13,11 @@ public class Booking {
     private Long id;
     private String bookingNumber;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     private User user;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.EAGER)
     private Flight flight;
-
-    private String passengerName;
-    private String passengerEmail;
-    private String passengerPhoneNumber;
 
 }
