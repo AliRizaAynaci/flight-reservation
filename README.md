@@ -21,6 +21,8 @@ These are the core components around which the system revolves.
 ---
 - **Java 8+:** Programming language
 - **Spring Boot:** Framework for creating RESTful APIs
+- **Spring Data JPA:** Data access framework
+- **Spring Security:** Security framework
 - **Maven:** Dependency management
 - **JUnit 5:** Testing framework
 - **Mockito:** Mocking framework
@@ -182,7 +184,8 @@ The CI/CD pipeline consists of two jobs:
 - **URL:** `POST /api/bookings/create`
 - **Method:** `POST`
 - **Request Body:** JSON
-   ```
+- **Example:**
+   ```json
    {
        "flightNumber": 1,
        "passengerName": "John Doe",
